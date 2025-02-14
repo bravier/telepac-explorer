@@ -86,7 +86,7 @@
   <header>
     <hgroup>
       <h3>
-        TelePAC Viewer
+        TelePAC Explorer
         <span style="font-size: 0.8rem"
           >par <a href="https://github.com/bravier">bravier</a></span
         >
