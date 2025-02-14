@@ -1,0 +1,47 @@
+@use "ol/ol";
+
+@use "@picocss/pico/scss/pico" with (
+  $theme-color: "green",
+  $parent-selector: ".pico",
+  $semantic-root-element: "",
+  $enable-semantic-container: true,
+  $enable-classes: false,
+  $enable-viewport: false,
+  $modules: (
+    "content/code": false,
+    "content/embedded": false,
+    "content/figure": false,
+    "content/link": false,
+    "content/miscs": false,
+    "content/table": false,
+    "forms/input-checkbox-radio-switch": false,
+    "forms/input-color": false,
+    "forms/input-date": false,
+    "forms/input-file": true,
+    "forms/input-range": false,
+    "forms/input-search": false,
+    "components/accordion": false,
+    "components/card": false,
+    "components/dropdown": false,
+    "components/group": false,
+    "components/loading": false,
+    "components/modal": false,
+    "components/nav": false,
+    "components/progress": false,
+    "components/tooltip": false,
+    "utilities/accessibility": false,
+    "utilities/reduce-motion": false,
+  )
+);
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
