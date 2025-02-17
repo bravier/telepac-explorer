@@ -14,7 +14,7 @@
   import TileLayer from "ol/layer/Tile";
   import GeoJSON from "ol/format/GeoJSON";
 
-  // Very useful link to unnderstand how to reproject GeoJSON from Lambert 93 to WGS84.
+  // Very useful link to understand how to reproject GeoJSON from Lambert 93 to WGS84:
   // https://benjamin.hervy.fr/blog/2022/openlayers-proj/
 
   proj4.defs(
