@@ -52,6 +52,7 @@
         source: vectorSource,
       });
       map?.addLayer(vectorLayer);
+      map?.getView().fit(vectorSource.getExtent());
     };
 
     await Promise.all([...files].map(addShapefileToMap));
