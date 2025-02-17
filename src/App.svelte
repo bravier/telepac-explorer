@@ -8,7 +8,8 @@
   import { Map, View } from "ol";
   import { fromLonLat } from "ol/proj";
   import { register } from "ol/proj/proj4";
-  import OSM from "ol/source/OSM";
+  import WMTS from "ol/source/WMTS";
+  import WMTSTileGrid from "ol/tilegrid/WMTS";
   import VectorSource from "ol/source/Vector";
   import VectorLayer from "ol/layer/Vector";
   import TileLayer from "ol/layer/Tile";
@@ -63,7 +64,30 @@
       target: node.id,
       layers: [
         new TileLayer({
-          source: new OSM(),
+          source: new WMTS({
+            url: "https://data.geopf.fr/wmts",
+            layer: "ORTHOIMAGERY.ORTHOPHOTOS",
+            matrixSet: "PM_0_21",
+            format: "image/jpeg",
+            style: "normal",
+            tileGrid: new WMTSTileGrid({
+              tileSize: 256,
+              // https://geoservices.ign.fr/documentation/services/services-deprecies/images-tuilees-wmts-ogc#résolutions-et-échelles-en-webmercator-sphérique
+              // https://github.com/IGNF/geopf-extensions-openlayers/blob/a264423/src/packages/Utils/LayerUtils.js#L142-L165
+              resolutions: [
+                156543.033928041, 78271.51696402048, 39135.758482010235,
+                19567.87924100512, 9783.93962050256, 4891.96981025128,
+                2445.98490512564, 1222.99245256282, 611.49622628141,
+                305.7481131407048, 152.8740565703525, 76.43702828517624,
+                38.21851414258813, 19.10925707129406, 9.554628535647032,
+                4.777314267823516, 2.388657133911758, 1.194328566955879,
+                0.5971642834779395, 0.2985821417389697, 0.1492910708694849,
+                0.0746455354347424,
+              ],
+              matrixIds: Array.from({ length: 22 }, (_, i) => i.toString()),
+              origin: [-20037508.3427891992032528, 20037508.3427891992032528],
+            }),
+          }),
         }),
       ],
       view: new View({
